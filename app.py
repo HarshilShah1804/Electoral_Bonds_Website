@@ -1,5 +1,4 @@
-from os import name
-from flask import Flask, redirect, url_for, request, Response, render_template
+from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
