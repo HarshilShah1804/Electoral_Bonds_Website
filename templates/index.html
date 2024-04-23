@@ -1,0 +1,84 @@
+<!-- Table for output in a2 -->
+<html>
+    <head>
+        <title>Electoral Bonds Website - 23110132</title>
+        <style>
+            h1{
+                text-align: center;
+                padding-left: 5%;
+                margin: 0;
+            }
+            h2{
+                text-align: center;
+                padding-left: 5%;
+                margin: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>DCC Assignment - 4</h1>
+        <h2>Electoral Bonds Website</h2>
+        <form method="post" action="/a_2">
+            <label>1. Search data by bond number:</label><br>
+            <select name="tablename" id="dropdown">
+                <option value="" disabled selected hidden>Choose the name of the table:</option>
+                <option value=purchase_details>Purchase Details</option>
+                <option value="redemption_details">Redemption Details</option>
+            <input name="box" type="text" id="bondnumber">
+            <input id="a_2" type="submit">
+        </form>
+    
+        <form method="post" action="/e_2">
+            <label>2. Display total bond value and number of bonds purchased by a Company/Individual</label>
+            <select name="Company" id="'dropdown">
+                <option value="" disabled selected hidden>Choose the name of Individual/Company</option>
+                {% for name in name_of_purchaser %}
+                <option value="{{name[0]}}">{{name[0]}}</option>
+                {% endfor %}
+            </select>
+            <input id="e_2" type="submit">
+        </form>
+        
+        <form method="post" action="/e_3">
+            <label>3. Display number of bonds and total value per year for a party</label>
+            <select name="party" id="dropdown">
+                <option value="" disabled selected hidden>Choose the name of the party</option>
+                {% for name in name_of_party %}
+                <option value="{{name[0]}}">{{name[0]}}</option>
+                {% endfor %}
+            </select>
+            <input id="e_3" type="submit">
+        </form>
+        
+        <form method="post" action="/e_4">
+            <label>4. Display which companies have donated to the party</label>
+            <select name="party" id="dropdown">
+                <option value="" disabled selected hidden>Choose the name of the party</option>
+                {% for name in name_of_party %}
+                <option value="{{name[0]}}">{{name[0]}}</option>
+                {% endfor %}
+            </select>
+            <input id="e_4" type="submit">
+        </form> 
+        
+        <form method="post" action="/e_5">
+            <label>5. Display the parties to which the company has donated </label>
+            <select name="company" id="dropdown">
+                <option value="" disabled selected hidden>Choose the name of the company</option>
+                {% for name in name_of_purchaser %}
+                <option value="{{name[0]}}">{{name[0]}}</option>
+                {% endfor %}
+            </select>
+            <input id="e_5" type="submit">
+        </form> 
+        <label>6. Show the Pie Chart depciting total amount of donations to all the parties. </label>
+        <form method="post" action="/e_6">
+            <button type="submit" value="Pie Chart" name="Pie Chart">Display Pie Chart</button>
+        </form>
+        
+       
+
+    </body>
+
+</html>

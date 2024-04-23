@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1.e.2</title>
+    <style>
+        h1{
+            text-align: center;
+            display: inline;
+            padding-left: 5%;
+            margin: 0;
+        }
+        .home{
+            position: absolute;
+            display: inline;
+        }
+        .home img{
+            width: 50px;
+            height: 50px;
+        }
+        a{
+            width: 0;
+            height: 0;  
+            display: inline-block;
+        }
+        .header{
+            padding: 20px;
+            margin: 0;
+            align-items: center;
+        }
+        footer{
+            position:fixed;
+            width: 100%; 
+            margin: 0;
+            padding: 0;
+            text-align: center;  
+            background-color: black;
+            color: white;
+        }
+        table, th, td {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            align-items: center;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    {% if e_2_data %}
+    <div class="header">
+        <div class="home">
+            <a href="/"><img src="{{ url_for('static', filename='images/home icon.png') }}" alt="Return to Home Page"></a>
+        </div>
+    
+        <h1>Data of Donations by the Company {{company}}</h1>
+    </div>
+        <table>
+            <th>Bond Number</th>
+            <th>Denominations</th>
+            <th>Year</th>
+        
+        {% for item in e_2_data %}
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </table>
+        {% if years %}
+        <div id="chart1" style="display: inline-block; height: 700px; width: 500px;">
+            <canvas id="companyyear" style="max-height: 4000px; max-width: 4000px; display: inline;",height="400",width="400"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script type="text/javascript">
+                var year = JSON.parse('{{ years | tojson | safe | replace("\'", "\\\'") }}');
+                var amount = JSON.parse('{{ amount | tojson | safe | replace("\'", "\\\'") }}');
+                console.log(year);
+                console.log(amount);
+                var cheartelement = document.getElementById('companyyear').getContext('2d');
+                var companyyear = new Chart(cheartelement,{
+                    type: 'bar',
+                    data: {
+                        labels: year,
+                        datasets: [{
+                            label: 'Total Amount of Bonds',
+                            data: amount ,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            
+            </script>
+        </div>
+        <div id="chart2" style="display: inline-block; height: 700px; width: 500px;">
+            <canvas id="companyyear2" style="max-height: 4000px; max-width: 4000px; display: inline;"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script type="text/javascript">
+                var year = JSON.parse('{{ years | tojson | safe | replace("\'", "\\\'") }}');
+                var number = JSON.parse('{{ number | tojson | safe | replace("\'", "\\\'") }}');
+                console.log(year);
+                console.log(amount);
+                var cheartelement = document.getElementById('companyyear2').getContext('2d');
+                var companyyear2 = new Chart(cheartelement,{
+                    type: 'bar',
+                    data: {
+                        labels: year,
+                        datasets: [{
+                            label: 'Number of Bonds',
+                            data: number ,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            
+            </script>
+            {% endif %}
+        </div>
+</body>
+</html>
