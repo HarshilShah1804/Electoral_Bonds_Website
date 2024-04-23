@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question 1.e.3</title>
     <style>
+        body{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: azure;
+            }
         h1{
             text-align: center;
             display: inline;
@@ -45,6 +49,7 @@
             align-items: center;
             text-align: center;
             padding: 10px;
+            background-color: white ;
         }
     </style>
 </head>
@@ -55,7 +60,7 @@
             <a href="/"><img src="{{ url_for('static', filename='images/home icon.png') }}" alt="Return to Home Page"></a>
         </div>
     
-        <h1>Data of Donations by the Company {{company}}</h1>
+        <h1>Data of Donations to the Party {{party}}</h1>
     </div>
         <table>
             <th>Bond Number</th>
@@ -88,8 +93,8 @@
                         datasets: [{
                             label: 'Number of Bonds',
                             data: amount ,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(0, 132, 255, 0.7)',
+                            borderColor: 'rgba(0, 0, 0, 1)',
                             borderWidth: 1
                         }]
                     },
@@ -105,9 +110,6 @@
             </script>
             {% endif %}
         </div>   
-        <footer>
-            <p>Developed by Harshil Shah</p>
-        </footer>
-    
+        
 </body>
 </html>

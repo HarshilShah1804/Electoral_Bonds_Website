@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question 1.e.2</title>
     <style>
+        body{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: azure;
+            }
         h1{
             text-align: center;
             display: inline;
@@ -29,21 +33,14 @@
             margin: 0;
             align-items: center;
         }
-        footer{
-            position:fixed;
-            width: 100%; 
-            margin: 0;
-            padding: 0;
-            text-align: center;  
-            background-color: black;
-            color: white;
-        }
+        
         table, th, td {
             width: 100%;
             border: 1px solid black;
             border-collapse: collapse;
             align-items: center;
             text-align: center;
+            background-color: white;
         }
 
 
@@ -56,7 +53,7 @@
             <a href="/"><img src="{{ url_for('static', filename='images/home icon.png') }}" alt="Return to Home Page"></a>
         </div>
     
-        <h1>Data of Donations by the Company {{company}}</h1>
+        <h1>Data of Donations by the Company {{company}}</h1><br><br>
     </div>
         <table>
             <th>Bond Number</th>
@@ -72,6 +69,8 @@
         {% endfor %}
         {% endif %}
         </table>
+        <br>
+        <br>
         {% if years %}
         <div id="chart1" style="display: inline-block; height: 700px; width: 500px;">
             <canvas id="companyyear" style="max-height: 4000px; max-width: 4000px; display: inline;",height="400",width="400"></canvas>
@@ -89,8 +88,8 @@
                         datasets: [{
                             label: 'Total Amount of Bonds',
                             data: amount ,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(0, 132, 255, 0.6)',
+                            borderColor: 'rgba(0, 0, 0, 1)',
                             borderWidth: 1
                         }]
                     },
@@ -121,8 +120,8 @@
                         datasets: [{
                             label: 'Number of Bonds',
                             data: number ,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(0, 132, 255, 0.6)',
+                            borderColor: 'rgba(0, 0, 0, 1)',
                             borderWidth: 1
                         }]
                     },

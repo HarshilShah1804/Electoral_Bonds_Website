@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question 1.e.6</title>
     <style>
+        body{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: azure;
+            }
         h1{
             text-align: center;
             left: 100%;
@@ -51,7 +55,7 @@
             <a href="/"><img src="{{ url_for('static', filename='images/home icon.png') }}" alt="Return to Home Page"></a>
         </div>
     
-        <h1>Pie Chart of Total Donations and the Parties</h1>
+        <h1>Pie Chart of Total Donations and the Parties</h1><br><br>
     </div>
     {% if party %}
         <div id="chart2">
@@ -84,9 +88,7 @@
             </script>
             {% endif %}
         </div>
-        <footer>
-            <p> Developed by Harshil Shah </p>
-        </footer>
+    
 
 </body>
 </html>

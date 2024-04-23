@@ -39,11 +39,17 @@
             color: white;
         }
         table, th, td {
+            background-color: white;
             width: 100%;
             border: 1px solid black;
             border-collapse: collapse;
             text-align: center;
         }
+
+        body{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: azure;
+            }
     </style>
 </head>
 <body>
@@ -52,7 +58,7 @@
             <a href="/"><img src="{{ url_for('static', filename='images/home icon.png') }}" alt="Return to Home Page"></a>
         </div>
     
-        <h1>Data from table {{table_name}} for bond number {{bond_number}}</h1>
+        <h1>Data from table {{table_name}} for bond number {{bond_number}}</h1><br><br>
     </div>
     <div class="main_body">
         <form method="post" action="/e_1">
@@ -82,7 +88,7 @@
                 {% endif %}
             </select>
             <input type="submit" value="Filter">
-        </form>
+        </form><br><br>
         {% if a_2_data%}
         <table>
             <th>Sr. No.</th>
